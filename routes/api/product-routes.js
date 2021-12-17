@@ -29,7 +29,7 @@ router.get('/:id', async (req, res) => {
     })
     res.status(200).json(data)
     if (!data) {
-      res.status(404).json({ message: 'No product found with this ID' })
+      res.status(404).json({ message: 'This ID does not match a product!' })
       return
     }
   } catch (err) {
@@ -117,7 +117,7 @@ router.delete('/:id', async (req, res) => {
     const data = await Product.destroy({ where: { id: req.params.id } })
     res.status(200).json(data)
     if (!data) {
-      res.status(404).json({ message: 'No such product found!' })
+      res.status(404).json({ message: 'Product does not exist!' })
       return
     }
   } catch (err) {
