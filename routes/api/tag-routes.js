@@ -22,7 +22,7 @@ router.get('/:id', async (req, res) => {
   try {
     const data = await Tag.findByPk(req.params.id, { include: { model: Product } })
     if (!data) {
-      res.status(404).json({ message: 'No tag with this ID!' })
+      res.status(404).json({ message: 'No tag has this ID!' })
     }
     res.status(200).json(data)
   } catch (err) {
@@ -35,7 +35,7 @@ router.post('/', async (req, res) => {
   try {
     const data = await Tag.create(req.body)
     res.status(200).json(data)
-    console.log('POST created successfully', data)
+    console.log('POST success', data)
   } catch (err) {
     res.status(500).json(err)
   }
@@ -49,7 +49,7 @@ router.put('/:id', async (req, res) => {
       { where: { id: req.params.id } })
     res.status(200).json(data)
     if (!data) {
-      res.status(404).json({ message: 'No such tag to update!' })
+      res.status(404).json({ message: 'Tag does not exist! Cannot update.' })
     }
   } catch (err) {
     res.status(500).json(err)
@@ -61,7 +61,7 @@ router.delete('/:id', async (req, res) => {
   try {
     const data = await Tag.destroy({ where: { id: req.params.id } })
     if (!data) {
-      res.status(404).json({ message: 'No such tag found!' })
+      res.status(404).json({ message: 'Tag cannot be found!' })
       return
     }
     res.status(200).json(data)
