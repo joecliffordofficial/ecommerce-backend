@@ -34,7 +34,7 @@ Enjoy!
 
 <a name = "video"></a>
 
-[Video]()
+[Video](https://joecliffordofficial.github.io/ecommerce-backend/)
 
 <a name = "installation"></a>
 
